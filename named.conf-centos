@@ -1,0 +1,46 @@
+options {
+    listen-on port 53 { 127.0.0.1; }; # IPv4地址监听端口及监听的主机列表
+    listen-on-v6 port 53 { ::1; }; # IPv6地址监听端口及监听的主机列表
+    directory   "/var/named"; # 服务器的工作目录
+    dump-file   "/var/named/data/cache_dump.db"; # 当执行rndc dumpdb时服务器dump文件的路径
+    statistics-file "/var/named/data/named_stats.txt"; # 执行rndc stats将服务器的统计信息写入文件,默认为named.stats
+    memstatistics-file "/var/named/data/named_mem_stats.txt"; # 默认为named.memestats,当退出的服务的时候将服务器的统计信息写到文件中
+    allow-query     { localhost; }; # 允许查询的主机列表，表示可以对主机列表里的主机提供服务
+    allow-transfer { any；}； # 指定哪些主机可以从服务器上接收区域传输,未指定将允许传输到所有的主机，默认是any，极其不安全，通常修改为指定主机或none
+
+    recursion yes; # 是否开启递归查询请求，设置为no的话，不去找根
+
+    dnssec-enable yes; # dns安全策略，建议关闭
+    dnssec-validation yes; # dns安全策略，建议关闭
+
+    /* Path to ISC DLV key */
+    bindkeys-file "/etc/named.iscdlv.key";
+
+    managed-keys-directory "/var/named/dynamic";
+
+    pid-file "/run/named/named.pid";
+    session-keyfile "/run/named/session.key";
+};
+
+logging {
+        channel default_debug {
+                file "data/named.run";
+                severity dynamic;
+        };
+};
+
+zone "." IN {
+    type hint;
+    file "named.ca";
+};
+
+zone "baidu.com" IN {
+        type master;
+        file "baidu.com.zone";
+        notify yes;
+       /* allow-update { none; };
+       */
+};
+
+include "/etc/named.rfc1912.zones";
+include "/etc/named.root.key";
