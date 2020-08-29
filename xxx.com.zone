@@ -1,11 +1,11 @@
 $TTL 600
-@	IN SOA	@   baidu.com. (
+@	IN SOA	@   xxx.com. (
 					0	; serial
 					1D	; refresh
 					1H	; retry
 					1W	; expire
 					3H )	; minimum
        	NS	     ns
-ns      A       10.30.30.22
-test    A       10.30.30.22
+ns      A       192.168.1.1
+test    A       192.168.1.1
 

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  nginx:
+    container_name: dns-alpine:0.1
+    image: chaiyd/dns:0.1
+    restart: always
+#    volumes:
+#      - /data/docker/nginx:/etc/nginx/logs
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
