@@ -1,15 +1,19 @@
 FROM alpine
 
+LABEL maintainer="chaiyd.cn@gmail.com"
+
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
-    && apk add tzdata \
+    && apk add tzdata bind \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
     && apk del tzdata
 
-RUN apk add bind
-COPY named.conf /etc/bind/
-COPY xxx.com.zone /var/bind/pri/
-COPY docker-entrypoint.sh /
+ENV DOMAIN="baidu.com"
+ENV NS="ns    A   192.168.1.1"
 
-ENTRYPOINT ["/bin/sh","/docker-entrypoint.sh"]
+COPY named.conf /etc/bind/
+COPY domain.zone /var/bind/pri/
+COPY start.sh /
+
+ENTRYPOINT ["/bin/sh","/start.sh"]
 #CMD ["/usr/sbin/named", "-f", "-g"]

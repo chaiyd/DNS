@@ -1,13 +1,12 @@
 version: '3'
 
 services:
-
-  nginx:
-    container_name: dns-alpine:0.1
-    image: chaiyd/dns:0.1
+  dns:
+    image: chaiyd/dns:1.0
+    environment:
+      DOMAIN: "baidu.com"
+      NS: "ns  A   192.168.1.1\nceshi   A   192.168.1.1" #需要解析多个时通过\n即可
     restart: always
-#    volumes:
-#      - /data/docker/nginx:/etc/nginx/logs
     ports:
       - "53:53/tcp"
       - "53:53/udp"
