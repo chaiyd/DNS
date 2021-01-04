@@ -7,7 +7,7 @@
 - 参考docker-compose自行添加环境变量来解析相应域名
   ```
   DOMAIN="baidu.com"
-  NS="ns    A   192.168.1.1\nceshi  A 192.168.1.1"
+  NS="ns    A   192.168.1.1\nceshi  A 192.168.1.1" #多条解析通过\n来分割
   ```  
 - 可以自行修改docker-compose文件
 - ~~可以自行修改xxx.com.zone 和named.conf 文件~~
