@@ -2,10 +2,13 @@ version: '3'
 
 services:
   dns:
-    image: chaiyd/dns:1.0
+    image: chaiyd/dns:1.1
     environment:
       DOMAIN: "baidu.com"
-      NS: "ns  A   192.168.1.1\nceshi   A   192.168.1.1" #需要解析多个时通过\n即可
+      NS: |-
+        ns        A   192.168.1.1
+        \nceshi   A   192.168.1.1
+        \nce      A   192.168.1.1
     restart: always
     ports:
       - "53:53/tcp"

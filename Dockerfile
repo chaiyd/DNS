@@ -14,6 +14,7 @@ ENV NS="ns    A   192.168.1.1"
 COPY named.conf /etc/bind/
 COPY domain.zone /var/bind/pri/
 COPY start.sh /
+RUN chmod +x start.sh
 
 ENTRYPOINT ["/bin/sh","/start.sh"]
 #CMD ["/usr/sbin/named", "-f", "-g"]

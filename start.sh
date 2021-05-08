@@ -8,5 +8,6 @@ sed -i s/baidu.com/$DOMAIN/g /etc/bind/named.conf
 
 echo -e $NS >> /var/bind/pri/domain.zone
 
-chown -R named.named /var/bind/pri/domain.zone
+chown -R root.root /etc/bind/rndc.key
+
 /usr/sbin/named -f -g
