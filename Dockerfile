@@ -8,8 +8,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && echo "Asia/Shanghai" > /etc/timezone \
     && apk del tzdata
 
-ENV DOMAIN="baidu.com"
-ENV NS="ns    A   192.168.1.1"
+ENV DOMAIN="xxx.com"
+ENV NS="ns   IN     A   192.168.1.1"
 
 COPY named.conf /etc/bind/
 COPY domain.zone /var/bind/pri/

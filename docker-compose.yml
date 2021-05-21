@@ -6,7 +6,7 @@ services:
     environment:
       DOMAIN: "xxx.com"
       NS: |-
-        ns		                  IN	    A	  192.168.1.10
+        ns		                IN	    A	  192.168.1.10
         \nkubernetes            IN      A   192.168.1.10
         \nkubernetes            IN      A   192.168.1.10
         \nkubernetes            IN      A   192.168.1.10
