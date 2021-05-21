@@ -7,7 +7,7 @@
 - 参考docker-compose自行添加环境变量来解析相应域名
 - \n 为换行,请按照以下格式设置，否则会报格式问题
   ```
-  DOMAIN="baidu.com"
+  DOMAIN="xxx.com"
   NS: |-
     ns        A   192.168.1.1
     \nceshi   A   192.168.1.1
