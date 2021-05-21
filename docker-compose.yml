@@ -2,13 +2,15 @@ version: '3'
 
 services:
   dns:
-    image: chaiyd/dns:1.1
+    image: chaiyd/dns:1.2
     environment:
       DOMAIN: "xxx.com"
       NS: |-
-        ns        A   192.168.1.1
-        \nceshi   A   192.168.1.1
-        \nce      A   192.168.1.1
+        ns		                  IN	    A	  192.168.1.10
+        \nkubernetes            IN      A   192.168.1.10
+        \nkubernetes            IN      A   192.168.1.10
+        \nkubernetes            IN      A   192.168.1.10
+        
     restart: always
     ports:
       - "53:53/tcp"
