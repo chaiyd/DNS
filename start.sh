@@ -11,8 +11,8 @@ nameserver 4.2.2.2    # microsoft
 nameserver 4.2.2.1
 EOF
 
-sed -i s/baidu.com/$DOMAIN/g /var/bind/pri/domain.zone
-sed -i s/baidu.com/$DOMAIN/g /etc/bind/named.conf
+sed -i s/xxx.com/$DOMAIN/g /var/bind/pri/domain.zone
+sed -i s/xxx.com/$DOMAIN/g /etc/bind/named.conf
 
 echo -e $NS >> /var/bind/pri/domain.zone
 
