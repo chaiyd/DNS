@@ -1,5 +1,5 @@
 $TTL 600
-@	IN SOA	@   baidu.com. (
+@	IN SOA	@   xxx.com. (
 					0	; serial
 					1D	; refresh
 					1H	; retry
